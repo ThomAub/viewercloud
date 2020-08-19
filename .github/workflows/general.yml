@@ -1,4 +1,4 @@
-name: Rust
+name: Rust general CI
 
 on: [push, pull_request]
 
@@ -8,13 +8,59 @@ env:
 jobs:
   test:
     name: Test
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        rust:
+          - stable
+          - beta
+          - nightly
+          - 1.31.0
+        os:
+          [
+            macos-latest,
+            macos-10.15,
+            ubuntu-16.04,
+            ubuntu-18.04,
+            ubuntu-20.04,
+            ubuntu-latest,
+            windows-latest,
+            windows-2019,
+          ]
+        include:
+          - os: ubuntu-latest
+            profile_rustup: default
+            profile_ci_flow: ci-static-code-analysis-tasks
+          - os: macos-latest
+            profile_rustup: default
+            profile_ci_flow: ci-static-code-analysis-tasks
+          - os: "macos-10.15"
+            profile_rustup: minimal
+            profile_ci_flow: none
+          - os: "ubuntu-16.04"
+            profile_rustup: minimal
+            profile_ci_flow: none
+          - os: "ubuntu-18.04"
+            profile_rustup: minimal
+            profile_ci_flow: none
+          - os: "ubuntu-20.04"
+            profile_rustup: minimal
+            profile_ci_flow: none
+          - os: "windows-latest"
+            profile_rustup: minimal
+            profile_ci_flow: none
+          - os: "windows-2019"
+            profile_rustup: minimal
+            profile_ci_flow: none
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Rust toolchain
       - uses: actions-rs/toolchain@v1
         with:
           profile: minimal
-          toolchain: stable
+          toolchain: ${{ matrix.rust }}
           override: true
       - uses: actions-rs/cargo@v1
         with:
@@ -68,5 +114,4 @@ jobs:
       - name: Run cargo-tarpaulin
         uses: actions-rs/tarpaulin@v0.1
         with:
-          args: '--ignore-tests'
-
+          args: "--ignore-tests"

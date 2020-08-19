@@ -1,0 +1,22 @@
+[package]
+name = "kitti-viewer"
+version = "0.1.0"
+authors = ["Thomaub <github.thomaub@gmail.com>"]
+description = "Cross-platform viewer to display kitti datasets poincloud and annotations"
+readme = "README.md"
+edition = "2018"
+
+
+[dependencies]
+anyhow = "1.0.31"
+kiss3d = {version="0.24.1"}
+nalgebra = "0.21"
+clap = {version = "3.0.0-beta.1", features = ["suggestions", "color"]}
+
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/cli.rs"
+name = "kitti-viewer"
