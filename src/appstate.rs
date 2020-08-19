@@ -1,6 +1,5 @@
 //! The Kiss3D App is created.
 use crate::pclrenderer::PointCloudRenderer;
-use kiss3d;
 use kiss3d::camera::Camera;
 use kiss3d::planar_camera::PlanarCamera;
 use kiss3d::post_processing::PostProcessingEffect;
