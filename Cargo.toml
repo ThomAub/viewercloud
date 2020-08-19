@@ -2,10 +2,15 @@
 name = "kitti-viewer"
 version = "0.1.0"
 authors = ["Thomaub <github.thomaub@gmail.com>"]
-description = "Cross-platform viewer to display kitti datasets poincloud and annotations"
+description = "Cross-platform 3D viewer to display kitti datasets poincloud and annotations"
 readme = "README.md"
 edition = "2018"
-
+license = "MIT"
+keywords = ["cli", "gui", "cross-platform"]
+categories = [" Command-line interface ", "Computer vision", "GUI", "Visualization"]
+repository = "https://github.com/ThomAub/kitti-viewer"
+homepage = "https://github.com/ThomAub/kitti-viewer"
+exclude = [".gitignore", "/tests/**"]
 
 [dependencies]
 anyhow = "1.0.31"
