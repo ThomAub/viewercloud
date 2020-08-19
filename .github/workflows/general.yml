@@ -11,10 +11,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        rust:
-          - stable
-          - beta
-          - nightly
         os:
           - macos-latest,
           - macos-10.15,
@@ -52,11 +48,12 @@ jobs:
             profile_ci_flow: none
 
     steps:
+      - uses: actions/checkout@v2
       - name: Rust toolchain
         uses: actions-rs/toolchain@v1
         with:
           profile: minimal
-          toolchain: ${{ matrix.rust }}
+          toolchain: stable
           override: true
       - uses: actions-rs/cargo@v1
         with:
