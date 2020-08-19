@@ -1,6 +1,5 @@
 //! The pointcloud Renderer for persistant pointcloud.
 //! It uses OpenGL.shader for fast computation.
-use kiss3d;
 use kiss3d::camera::Camera;
 use kiss3d::context::Context;
 use kiss3d::renderer::Renderer;
