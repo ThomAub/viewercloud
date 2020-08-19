@@ -55,6 +55,7 @@ pub struct KittiAnnotation {
 
 impl KittiAnnotation {
     /// Create a KittiAnnotation
+    #[allow(clippy::too_many_arguments)]
     pub fn new(
         category: String,
         truncation: f32,
@@ -117,7 +118,7 @@ pub fn read_annotation_file(kitti_annotations_path: String) -> Result<Vec<KittiA
     for line in file.lines() {
         let line = line?;
         let data: Vec<&str> = line.split_whitespace().collect();
-        if data[0].to_string() != "DontCare" {
+        if data[0] != "DontCare" {
             let anno = KittiAnnotation::new(
                 data[0].to_string(),
                 data[1].parse()?,

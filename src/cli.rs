@@ -4,7 +4,6 @@ mod pclrenderer;
 
 use anyhow::Result;
 use clap::{crate_authors, crate_version, Clap};
-use kiss3d;
 use kiss3d::resource::{AllocationType, BufferType, GPUVec};
 use kiss3d::window::Window;
 

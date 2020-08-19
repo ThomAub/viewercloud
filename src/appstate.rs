@@ -18,6 +18,7 @@ pub struct AppState {
 impl State for AppState {
     // Return the custom renderer that will be called
     // at each render loop.
+    #[allow(clippy::type_complexity)]
     fn cameras_and_effect_and_renderer(
         &mut self,
     ) -> (
