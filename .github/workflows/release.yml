@@ -44,8 +44,8 @@ jobs:
       - name: Build release
         uses: actions-rs/cargo@v1
         with:
-          command: build 
-          args: --release --locked
+          command: build
+          args: --release
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
