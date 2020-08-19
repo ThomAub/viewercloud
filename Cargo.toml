@@ -1,6 +1,6 @@
 [package]
 name = "kitti-viewer"
-version = "0.1.0"
+version = "0.1.2"
 authors = ["Thomaub <github.thomaub@gmail.com>"]
 description = "Cross-platform 3D viewer to display kitti datasets poincloud and annotations"
 readme = "README.md"
