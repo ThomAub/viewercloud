@@ -15,18 +15,16 @@ jobs:
           - stable
           - beta
           - nightly
-          - 1.31.0
         os:
-          [
-            macos-latest,
-            macos-10.15,
-            ubuntu-16.04,
-            ubuntu-18.04,
-            ubuntu-20.04,
-            ubuntu-latest,
-            windows-latest,
-            windows-2019,
-          ]
+          - macos-latest,
+          - macos-10.15,
+          - ubuntu-16.04,
+          - ubuntu-18.04,
+          - ubuntu-20.04,
+          - ubuntu-latest,
+          - windows-latest,
+          - windows-2019,
+    
         include:
           - os: ubuntu-latest
             profile_rustup: default
@@ -54,10 +52,8 @@ jobs:
             profile_ci_flow: none
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
       - name: Rust toolchain
-      - uses: actions-rs/toolchain@v1
+        uses: actions-rs/toolchain@v1
         with:
           profile: minimal
           toolchain: ${{ matrix.rust }}
