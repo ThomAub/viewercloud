@@ -32,10 +32,7 @@ impl State for AppState {
     }
 
     fn step(&mut self, window: &mut Window) {
-        let num_points_text = format!(
-            "Number of points: {}",
-            self.point_cloud_renderer.num_points()
-        );
+        let num_points_text = format!("Number of points: {}", self.point_cloud_renderer.num_points());
         window.draw_text(
             &num_points_text,
             &Point2::new(0.0, 20.0),
@@ -44,14 +41,11 @@ impl State for AppState {
             &Point3::new(1.0, 1.0, 1.0),
         );
         for event in window.events().iter() {
-            match event.value {
-                WindowEvent::Key(key, action, modif) => {
-                    println!("key event {:?} on {:?} with {:?}", key, action, modif);
-                    if format!("{:?}", key) == "Q" {
-                        window.close();
-                    }
+            if let WindowEvent::Key(key, action, modif) = event.value {
+                println!("key event {:?} on {:?} with {:?}", key, action, modif);
+                if format!("{:?}", key) == "Q" {
+                    window.close();
                 }
-                _ => {}
             }
         }
     }

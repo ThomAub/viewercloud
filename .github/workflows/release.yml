@@ -19,18 +19,18 @@ jobs:
         os: [macos-latest, ubuntu-latest, windows-latest]
         include:
           - os: macos-latest
-            artifact_name: kitti-viewer
-            asset_name: kitti-viewer-macos-amd64
+            artifact_name: viewercloud
+            asset_name: viewercloud-macos-amd64
             profile_rustup: default
             profile_ci_flow: ci-static-code-analysis-tasks
           - os: ubuntu-latest
-            artifact_name: kitti-viewer
-            asset_name: kitti-viewer-linux-amd64
+            artifact_name: viewercloud
+            asset_name: viewercloud-linux-amd64
             profile_rustup: default
             profile_ci_flow: ci-static-code-analysis-tasks
           - os: "windows-latest"
-            artifact_name: kitti-viewer.exe
-            asset_name: kitti-viewer-windows-amd64
+            artifact_name: viewercloud.exe
+            asset_name: viewercloud-windows-amd64
             profile_rustup: minimal
             profile_ci_flow: none
 

@@ -15,26 +15,10 @@ pub fn read_kitti_bin_file(pointcloud_file: String) -> Result<PointCloud> {
 
     let mut pcl_data: PointCloud = PointCloud::new();
     for num in raw_data.chunks_exact(16) {
-        let x = f32::from_ne_bytes(
-            num[0..4]
-                .try_into()
-                .expect("not the good size for the x coordinate"),
-        );
-        let y = f32::from_ne_bytes(
-            num[4..8]
-                .try_into()
-                .expect("not the good size for the y coordinate"),
-        );
-        let z = f32::from_ne_bytes(
-            num[8..12]
-                .try_into()
-                .expect("not the good size for the z coordinate"),
-        );
-        let _ = f32::from_ne_bytes(
-            num[12..16]
-                .try_into()
-                .expect("not the good size for intensity"),
-        );
+        let x = f32::from_ne_bytes(num[0..4].try_into().expect("not the good size for the x coordinate"));
+        let y = f32::from_ne_bytes(num[4..8].try_into().expect("not the good size for the y coordinate"));
+        let z = f32::from_ne_bytes(num[8..12].try_into().expect("not the good size for the z coordinate"));
+        let _ = f32::from_ne_bytes(num[12..16].try_into().expect("not the good size for intensity"));
 
         // To fit the view from kiss3D window we change axis
         let point = Point3::from_slice(&[z, x, y]);

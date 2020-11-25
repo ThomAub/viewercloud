@@ -39,10 +39,6 @@ impl PointCloudRenderer {
     pub fn num_points(&self) -> usize {
         self.colored_points.len() / 2
     }
-    /// Sets the point size for the rendered points.
-    pub fn set_point_size(&mut self, pt_size: f32) {
-        self.point_size = pt_size;
-    }
 }
 
 impl Renderer for PointCloudRenderer {
