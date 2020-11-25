@@ -1,18 +1,18 @@
-# Kitti Viewer
+# Viewercloud
 
-`kitti_viewer` is a library and also a cli to read and display [KITTI](http://www.cvlibs.net/datasets/kitti/) pointcloud.
+`Viewercloud` is a library and also a cli to read and display Pointcloud. It was initially used to display [KITTI](http://www.cvlibs.net/datasets/kitti/) pointcloud.
 It will also be able to display the 3D annotations and the 3D BoundingBox computed by your favorite algorithm.
 
 ## Usage
 
 ```sh
-> kitti-viewer --help
-kitti-viewer 0.1.0
+> viewercloud --help
+viewercloud 0.1.0
 Thomaub <github.thomaub@gmail.com>
 Display KITTI 3D Pointcloud with annotations and your model inferences
 
 USAGE:
-    kitti-viewer <pointcloud-file> [ARGS]
+    viewercloud <pointcloud-file> [ARGS]
 
 ARGS:
     <pointcloud-file>     Path to the kitti Pointcloud .bin or .txt file

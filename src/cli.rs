@@ -1,16 +1,16 @@
-mod appstate;
 mod pclparser;
-mod pclrenderer;
+mod renderer;
+mod viewer;
 
 use anyhow::Result;
 use clap::{crate_authors, crate_version, Clap};
 use kiss3d::resource::{AllocationType, BufferType, GPUVec};
 use kiss3d::window::Window;
 
-use appstate::AppState;
-use kitti_viewer::{PointCloud, PointCloudGPU};
 use pclparser::read_kitti_bin_file;
-use pclrenderer::PointCloudRenderer;
+use renderer::PointCloudRenderer;
+use viewer::AppState;
+use viewercloud::{PointCloud, PointCloudGPU};
 /// Display KITTI 3D Pointcloud with annotations and your model inferences
 #[derive(Clap)]
 #[clap(version = crate_version!(), author = crate_authors!())]

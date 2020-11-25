@@ -1,4 +1,4 @@
-use kitti_viewer::annotation::{read_annotation_file, KittiAnnotation};
+use viewercloud::annotation::{read_annotation_file, KittiAnnotation};
 #[test]
 fn test_read_annotation_file_000000() {
     assert_eq!(

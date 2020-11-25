@@ -1,3 +1,4 @@
+use nalgebra::Point3;
 /// >>> import numpy as np
 /// >>> np.arange(0,12, dtype=np.float32).reshape(-1,4).tofile("small_vec.bin")
 /// >>> np.arange(0,12000,
@@ -5,8 +6,7 @@
 /// bigger_vec.txt", np.arange(0,12000, dtype=np.float32).reshape(-1,4))
 /// >>> np.savetxt("small_vec.txt", np.arange(0,12,
 /// dtype=np.float32).reshape(-1,4))
-use kitti_viewer::pclparser::{parse_pointcloud_txt, read_kitti_bin_file};
-use nalgebra::Point3;
+use viewercloud::pclparser::{parse_pointcloud_txt, read_kitti_bin_file};
 #[test]
 fn test_read_small_bin_file() {
     assert_eq!(

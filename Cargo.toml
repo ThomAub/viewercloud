@@ -1,22 +1,22 @@
 [package]
-name = "kitti-viewer"
+name = "viewercloud"
 version = "0.1.2"
 authors = ["Thomaub <github.thomaub@gmail.com>"]
-description = "Cross-platform 3D viewer to display kitti datasets poincloud and annotations"
+description = "Cross-platform 3D viewer to display autonomous driving poincloud datasets and annotations"
 readme = "README.md"
 edition = "2018"
 license = "MIT"
-keywords = ["cli", "gui", "cross-platform"]
+keywords = ["cli", "gui", "cross-platform", "python", "wasm"]
 categories = [" Command-line interface ", "Computer vision", "GUI", "Visualization"]
-repository = "https://github.com/ThomAub/kitti-viewer"
-homepage = "https://github.com/ThomAub/kitti-viewer"
-exclude = [".gitignore", "/tests/**"]
+repository = "https://github.com/ThomAub/viewercloud"
+homepage = "https://github.com/ThomAub/viewercloud"
+exclude = [".gitignore", "tests/**", "target/**"]
 
 [dependencies]
-anyhow = "1.0.31"
-kiss3d = {version="0.28.0"}
-nalgebra = "0.23"
-clap = {version = "3.0.0-beta.1", features = ["suggestions", "color"]}
+anyhow = { version = "1.0.31" }
+kiss3d = { version = "0.27.0" }
+nalgebra = { version = "0.23" }
+clap = { features = ["suggestions", "color"], version = "3.0.0-beta.1" }
 
 
 [lib]
@@ -24,4 +24,4 @@ path = "src/lib.rs"
 
 [[bin]]
 path = "src/cli.rs"
-name = "kitti-viewer"
+name = "viewercloud"
