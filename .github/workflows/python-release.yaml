@@ -7,7 +7,6 @@ on:
 
 env:
   PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
-  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
 jobs:
   lint:
@@ -58,12 +57,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: Install poetry
+        uses: abatilo/actions-poetry@v2.0.0
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
-          echo "::add-path::${HOME}/.poetry/bin"
-          poetry install
+        run: poetry install
       - name: Install latest nightly
         uses: actions-rs/toolchain@v1
         with:
@@ -118,11 +115,10 @@ jobs:
           toolchain: nightly
           override: true
 
+      - name: Install poetry
+        uses: abatilo/actions-poetry@v2.0.0
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install poetry
-          poetry install
+        run: poetry install
       - name: Build Python package
         run: poetry run maturin build --release --no-sdist --strip --interpreter python${{matrix.python_version}}
 
