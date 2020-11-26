@@ -1,0 +1,26 @@
+[package]
+name = "pyviewercloud"
+version = "0.1.0"
+authors = ["Thomaub <github.thomaub@gmail.com>"]
+description = "Python bindings for viewercloud"
+readme = "README.md"
+edition = "2018"
+license = "MIT"
+keywords = ["python"]
+categories = ["Python", "Visualization"]
+repository = "https://github.com/ThomAub/viewercloud"
+homepage = "https://github.com/ThomAub/viewercloud"
+exclude = ["tests/**", "target/**"]
+
+[dependencies]
+kiss3d = { version = "0.27.0" }
+nalgebra = { version = "0.23" }
+ndarray = { version = "0.13.1" }
+pyo3 = { features = ["extension-module"], version = "0.12" }
+numpy = { version = "0.12" }
+viewercloud = { path = "../../../viewercloud" }
+
+
+[lib]
+crate-type = ["cdylib"]
+name = "pyviewercloud"
