@@ -71,11 +71,11 @@ jobs:
       - name: Build Python package
         run: cd packages/pyviewercloud && poetry run maturin develop --release
 
-      - name: pytest
-        run: cd packages/pyviewercloud && poetry run pytest tests
+      #- name: pytest
+      #  run: cd packages/pyviewercloud && poetry run pytest tests
 
-      - name: Benchmark
-        run: cd packages/pyviewercloud && poetry run pytest benchmarks --compare
+      #- name: Benchmark
+      #  run: cd packages/pyviewercloud && poetry run pytest benchmarks --compare
 
   # rust-publish:
   #   if: startsWith(github.ref, 'refs/tags/')
