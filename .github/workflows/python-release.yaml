@@ -1,4 +1,4 @@
-iname: CI
+name: Python package Release
 
 on:
   push:
