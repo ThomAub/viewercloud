@@ -7,6 +7,7 @@ on:
 
 env:
   PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
 jobs:
   lint:
