@@ -69,7 +69,8 @@ jobs:
           override: true
 
       - name: Build Python package
-        run: cd packages/pyviewercloud && poetry run maturin develop --release
+      - working-directory: ./packages/pyviewercloud
+        run: poetry run maturin develop --release
 
       #- name: pytest
       #  run: cd packages/pyviewercloud && poetry run pytest tests
@@ -119,9 +120,11 @@ jobs:
       - name: Install poetry
         uses: abatilo/actions-poetry@v2.0.0
       - name: Install dependencies
+        
         run: cd packages/pyviewercloud && poetry install
       - name: Build Python package
-        run: cd packages/pyviewercloud && poetry run maturin build --release --no-sdist --strip --interpreter python${{matrix.python_version}}
+      - working-directory: ./packages/pyviewercloud
+        run: poetry run maturin build --release --no-sdist --strip --interpreter python${{matrix.python_version}}
 
       - name: List wheels
         if: matrix.os == 'windows-latest'
@@ -151,6 +154,7 @@ jobs:
           
 
       - name: PyPi publish
+      - working-directory: ./packages/pyviewercloud
         env:
           MATURIN_PASSWORD: ${{ secrets.PYPI_TOKEN }}
         run: poetry run maturin publish --username __token__
