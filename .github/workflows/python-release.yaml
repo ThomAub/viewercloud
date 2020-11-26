@@ -69,7 +69,7 @@ jobs:
           override: true
 
       - name: Build Python package
-      - working-directory: ./packages/pyviewercloud
+        working-directory: ./packages/pyviewercloud
         run: poetry run maturin develop --release
 
       #- name: pytest
@@ -123,7 +123,7 @@ jobs:
         
         run: cd packages/pyviewercloud && poetry install
       - name: Build Python package
-      - working-directory: ./packages/pyviewercloud
+        working-directory: ./packages/pyviewercloud
         run: poetry run maturin build --release --no-sdist --strip --interpreter python${{matrix.python_version}}
 
       - name: List wheels
@@ -154,7 +154,7 @@ jobs:
           
 
       - name: PyPi publish
-      - working-directory: ./packages/pyviewercloud
+        working-directory: ./packages/pyviewercloud
         env:
           MATURIN_PASSWORD: ${{ secrets.PYPI_TOKEN }}
         run: poetry run maturin publish --username __token__
