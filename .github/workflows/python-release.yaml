@@ -60,6 +60,7 @@ jobs:
       - name: Install poetry
         uses: abatilo/actions-poetry@v2.0.0
       - name: Install dependencies
+        
         run: cd packages/pyviewercloud && poetry install
       - name: Install latest nightly
         uses: actions-rs/toolchain@v1
@@ -68,13 +69,13 @@ jobs:
           override: true
 
       - name: Build Python package
-        run: poetry run maturin develop --release
+        run: cd packages/pyviewercloud && poetry run maturin develop --release
 
       - name: pytest
-        run: poetry run pytest tests
+        run: cd packages/pyviewercloud && poetry run pytest tests
 
       - name: Benchmark
-        run: poetry run pytest benchmarks --compare
+        run: cd packages/pyviewercloud && poetry run pytest benchmarks --compare
 
   # rust-publish:
   #   if: startsWith(github.ref, 'refs/tags/')
@@ -120,31 +121,31 @@ jobs:
       - name: Install dependencies
         run: cd packages/pyviewercloud && poetry install
       - name: Build Python package
-        run: poetry run maturin build --release --no-sdist --strip --interpreter python${{matrix.python_version}}
+        run: cd packages/pyviewercloud && poetry run maturin build --release --no-sdist --strip --interpreter python${{matrix.python_version}}
 
       - name: List wheels
         if: matrix.os == 'windows-latest'
-        run: dir target\wheels\
+        run: dir packages\pyviewercloud\target\wheels\
 
       - name: List wheels
         if:  matrix.os != 'windows-latest'
-        run: find ./target/wheels/
+        run: find packages/pyviewercloud/target/wheels/
 
       # Note: Windows doesn't support glob
       # https://stackoverflow.com/a/52481267/270334
       - name: Install wheels
         if:  matrix.os == 'windows-latest'
-        run: pip install --find-links=target\wheels viewercloud
+        run: pip install --find-links=packages\pyviewercloud\target\wheels viewercloud
 
       - name: Install wheels
         if:  matrix.os != 'windows-latest'
-        run: pip install target/wheels/viewercloud*.whl
+        run: pip install packages/pyviewercloud/target/wheels/viewercloud*.whl
 
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: target/wheels/viewercloud*.whl
+          files: packages/pyviewercloud/target/wheels/viewercloud*.whl
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
