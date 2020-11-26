@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyviewercloud"
-version = "0.1.1"
+version = "0.1.2"
 description = "Python binding for viewercloud"
 authors = ["Thomaub <github.thomaub@gmail.com>"]
 license = "MIT"
