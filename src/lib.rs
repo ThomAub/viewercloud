@@ -1,6 +1,6 @@
 //! # Documentation
 //!
-//! WOW such a nice documentation of the lib
+//!
 
 #![warn(missing_docs)]
 #![warn(unused_extern_crates)]
@@ -20,22 +20,27 @@ pub struct BBox3D {
     xmin: Point3<f32>,
 }
 /// A PointCloud
-pub type PointCloud = Vec<Point3<f32>>;
-// #[derive(Debug)]
-// pub struct PointCloud {
-//     data: Vec<Point3<f32>>,
-// }
+//pub type PointCloud = Vec<Point3<f32>>;
+#[derive(Debug, Clone)]
+pub struct PointCloud {
+    /// field to store the multiple pointcloud to be passed to the viewer
+    pub data: Vec<Point3<f32>>,
+}
 
-// impl PointCloud {
-//     /// Create a new PointCloud
-//     pub fn new() -> Self {
-//         Self { data: vec![] }
-//     }
-//     /// Appends an Point to the PointCloud
-//     pub fn push(&mut self, point: Point3<f32>) -> () {
-//         self.data.push(point);
-//     }
-// }
+impl PointCloud {
+    /// Create a new empty PointCloud
+    pub fn new() -> Self {
+        Self { data: vec![] }
+    }
+    /// Extend the current PointCloud
+    pub fn append(&mut self, other: &mut Vec<Point3<f32>>) {
+        self.data.append(other);
+    }
+    /// Extend the current PointCloud
+    pub fn push(&mut self, point: Point3<f32>) {
+        self.data.push(point);
+    }
+}
 
 /// A PointCloud on GPU
 pub type PointCloudGPU = GPUVec<Point3<f32>>;

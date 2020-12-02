@@ -1,0 +1,6 @@
+sign-commit = true
+sign-tag = true
+pre-release-replacements = [
+  {file="README.md", search="viewercloud [a-z0-9\\.-]+", replace="viewercloud {{version}}"} ,
+]
+exclude-paths = ["/docs/**", "/README.md", "/tests/**", "/.travis.yml"]

@@ -1,7 +1,7 @@
 //! The Kiss3D App is created.
 use crate::renderer::PointCloudRenderer;
 use kiss3d::camera::Camera;
-use kiss3d::event::WindowEvent;
+use kiss3d::event::{Key, WindowEvent};
 use kiss3d::planar_camera::PlanarCamera;
 use kiss3d::post_processing::PostProcessingEffect;
 use kiss3d::renderer::Renderer;
@@ -43,7 +43,7 @@ impl State for AppState {
         for event in window.events().iter() {
             if let WindowEvent::Key(key, action, modif) = event.value {
                 println!("key event {:?} on {:?} with {:?}", key, action, modif);
-                if format!("{:?}", key) == "Q" {
+                if key == Key::Q {
                     window.close();
                 }
             }
