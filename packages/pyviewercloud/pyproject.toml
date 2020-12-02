@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyviewercloud"
-version = "0.1.2"
+version = "0.2.0"
 description = "Python binding for viewercloud"
 authors = ["Thomaub <github.thomaub@gmail.com>"]
 license = "MIT"
@@ -37,10 +37,6 @@ maturin = "^0.8.3"
 setuptools-rust = "^0.11.5"
 importlib-metadata = "^2.0.0"
 twine = "^3.2.0"
-
-#[build-system]
-#requires = ["maturin>=0.8"]
-#build-backend = "maturin"
 
 [tool.black]
 line-length = 120
