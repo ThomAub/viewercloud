@@ -21,7 +21,7 @@ pub struct BBox3D {
 }
 /// A PointCloud
 //pub type PointCloud = Vec<Point3<f32>>;
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Default)]
 pub struct PointCloud {
     /// field to store the multiple pointcloud to be passed to the viewer
     pub data: Vec<Point3<f32>>,

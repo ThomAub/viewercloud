@@ -37,7 +37,7 @@ fn main() -> Result<()> {
     }
     // Parsing Data files into GPU Points
     let pcl_data: PointCloud = read_kitti_bin_file(pointcloud_file)?;
-    let point_cloud_data: PointCloudGPU = GPUVec::new(pcl_data, BufferType::Array, AllocationType::StreamDraw);
+    let point_cloud_data: PointCloudGPU = GPUVec::new(pcl_data.data, BufferType::Array, AllocationType::StreamDraw);
 
     // 3D Rendering
     let window = Window::new_with_size("KITII velodyne point_cloud", 1500, 1000);

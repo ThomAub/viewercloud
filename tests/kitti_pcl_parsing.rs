@@ -10,7 +10,9 @@ use viewercloud::pclparser::{parse_pointcloud_txt, read_kitti_bin_file};
 #[test]
 fn test_read_small_bin_file() {
     assert_eq!(
-        read_kitti_bin_file("tests/data/kitti/velodyne/small_vec.bin".to_string()).unwrap(),
+        read_kitti_bin_file("tests/data/kitti/velodyne/small_vec.bin".to_string())
+            .unwrap()
+            .data,
         vec![
             Point3::new(2.0, 0.0, 1.0),
             Point3::new(1.0, 1.0, 1.0),
@@ -26,6 +28,7 @@ fn test_read_bigger_bin_file() {
     assert_eq!(
         read_kitti_bin_file("tests/data/kitti/velodyne/bigger_vec.bin".to_string())
             .unwrap()
+            .data
             .len(),
         6000
     )
@@ -33,7 +36,9 @@ fn test_read_bigger_bin_file() {
 #[test]
 fn test_read_small_txt_file() {
     assert_eq!(
-        parse_pointcloud_txt("tests/data/kitti/velodyne/small_vec.txt".to_string()).unwrap(),
+        parse_pointcloud_txt("tests/data/kitti/velodyne/small_vec.txt".to_string())
+            .unwrap()
+            .data,
         vec![
             Point3::new(2.0, 0.0, 1.0),
             Point3::new(1.0, 1.0, 1.0),
@@ -49,6 +54,7 @@ fn test_read_bigger_txt_file() {
     assert_eq!(
         parse_pointcloud_txt("tests/data/kitti/velodyne/bigger_vec.txt".to_string())
             .unwrap()
+            .data
             .len(),
         6000
     )
@@ -58,6 +64,7 @@ fn test_read_000000_bin_file() {
     assert_eq!(
         read_kitti_bin_file("tests/data/kitti/velodyne/000000.bin".to_string())
             .unwrap()
+            .data
             .len(),
         230768
     )
@@ -67,6 +74,7 @@ fn test_read_000001_bin_file() {
     assert_eq!(
         read_kitti_bin_file("tests/data/kitti/velodyne/000001.bin".to_string())
             .unwrap()
+            .data
             .len(),
         240536
     )
