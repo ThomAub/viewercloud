@@ -9,6 +9,7 @@ use kiss3d::text::Font;
 use kiss3d::window::{State, Window};
 use na::{Point2, Point3};
 use nalgebra as na;
+use std::path::Path;
 
 /// Global State for the app
 pub struct AppState {
@@ -45,6 +46,11 @@ impl State for AppState {
                 println!("key event {:?} on {:?} with {:?}", key, action, modif);
                 if key == Key::Q {
                     window.close();
+                } else if key == Key::S {
+                    let img = window.snap_image();
+                    let img_path = Path::new("screenshot.png");
+                    img.save(img_path).unwrap();
+                    println!("Screeshot saved to `screenshot.png`");
                 }
             }
         }
