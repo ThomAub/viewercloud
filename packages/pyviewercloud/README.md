@@ -10,11 +10,11 @@ It will also be able to display the 3D annotations and the 3D BoundingBox comput
 
 Viewercloud will open a openGL window to display the pointcloud. Press `q`to close.
 
-![kitti-centroid](https://raw.githubusercontent.com/ThomAub/viewercloud/assets/kitti_with_centroid.png)
+![kitti-centroid](https://raw.githubusercontent.com/ThomAub/viewercloud/master/assets/kitti_with_centroid.png)
 
 It can also take a screen shot of the current view to save as png. Press `s` take screenshot.
 
-![kitti-centroid](https://raw.githubusercontent.com/ThomAub/viewercloud/assets/kitti_with_centroid.png)
+![kitti-centroid](https://raw.githubusercontent.com/ThomAub/viewercloud/master/assets/screenshot.png)
 
 ## Python Usage
 
