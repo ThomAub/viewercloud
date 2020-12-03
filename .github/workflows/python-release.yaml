@@ -15,10 +15,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Install latest nightly
+      - name: Install latest stable
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: nightly
+          toolchain: stable
           override: true
           components: rustfmt, clippy
 
@@ -57,10 +57,10 @@ jobs:
       - name: Install dependencies
 
         run: cd packages/pyviewercloud && poetry install
-      - name: Install latest nightly
+      - name: Install latest stable
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: nightly
+          toolchain: stable
           override: true
 
       - name: Build Python package
@@ -82,7 +82,7 @@ jobs:
 
   #     - uses: actions-rs/toolchain@v1
   #       with:
-  #         toolchain: nightly
+  #         toolchain: stable
   #         override: true
 
   #     - name: Publish on crates.io
@@ -106,10 +106,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install latest nightly
+      - name: Install latest stable
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: nightly
+          toolchain: stable
           override: true
 
       - name: Install poetry
