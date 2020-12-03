@@ -70,7 +70,7 @@ viewer.show()
 
 ```sh
 > viewercloud --help
-viewercloud 0.2.0
+viewercloud 0.2.1
 Thomaub <github.thomaub@gmail.com>
 Display KITTI 3D Pointcloud with annotations and your model inferences
 

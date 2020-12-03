@@ -1,6 +1,6 @@
 [package]
 name = "viewercloud"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Thomaub <github.thomaub@gmail.com>"]
 description = "Cross-platform 3D viewer to display autonomous driving poincloud datasets and annotations"
 readme = "README.md"
