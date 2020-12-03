@@ -1,6 +1,6 @@
 [package]
 name = "pyviewercloud"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Thomaub <github.thomaub@gmail.com>"]
 description = "Python bindings for viewercloud"
 readme = "README.md"
