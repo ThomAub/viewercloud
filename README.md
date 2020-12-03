@@ -1,4 +1,8 @@
 # Viewercloud
+![Rust general CI](https://github.com/ThomAub/viewercloud/workflows/Rust%20general%20CI/badge.svg)
+
+![Python package Release](https://github.com/ThomAub/viewercloud/workflows/Python%20package%20Release/badge.svg)
+![Package Release Flow](https://github.com/ThomAub/viewercloud/workflows/Package%20Release%20Flow/badge.svg)
 
 `Viewercloud` is a library and also a cli to read and display Pointcloud.
 It was initially used to display [KITTI](http://www.cvlibs.net/datasets/kitti/) pointcloud.
