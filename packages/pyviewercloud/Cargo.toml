@@ -15,7 +15,7 @@ exclude = ["tests/**", "target/**"]
 [dependencies]
 kiss3d = { version = "0.27.0" }
 nalgebra = { version = "0.23" }
-ndarray = { version = "0.13.1" }
+ndarray = { version = "0.14" }
 pyo3 = { features = ["extension-module"], version = "0.12" }
 numpy = { version = "0.12" }
 viewercloud = { path = "../../../viewercloud" }
