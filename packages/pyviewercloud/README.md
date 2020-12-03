@@ -14,7 +14,7 @@ Viewercloud will open a openGL window to display the pointcloud. Press `q`to clo
 
 It can also take a screen shot of the current view to save as png. Press `s` take screenshot.
 
-![kitti-centroid](https://raw.githubusercontent.com/ThomAub/viewercloud/master/assets/screenshot.png)
+![lyft-color](https://raw.githubusercontent.com/ThomAub/viewercloud/master/assets/screenshot.png)
 
 ## Python Usage
 
