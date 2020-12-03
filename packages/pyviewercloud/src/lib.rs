@@ -4,7 +4,7 @@ use kiss3d::window::Window;
 use na::geometry::Translation3;
 use na::Point3;
 use nalgebra as na;
-use ndarray::{stack, Array, Array2, ArrayView2, Axis};
+use ndarray::{stack, Array, Array2, Axis};
 use numpy::PyReadonlyArray2;
 use pyo3::prelude::{pyclass, pymethods, pymodule, PyModule, PyResult, Python};
 use pyo3::types::PyList;
@@ -47,7 +47,7 @@ impl PointcloudViewer {
     /// Args: pointcloud: numpy.ndarray [NX3] in float32 each row represent a point.
     ///       color: List[int, int, int] List storing the RGB representation of the color.
     pub fn add_pointcloud(&mut self, pointcloud: PyReadonlyArray2<f32>, color: &PyList) {
-        let pointcloud: ArrayView2<f32> = pointcloud.as_array();
+        let pointcloud = pointcloud.as_array();
         let color: Vec<f32> = color.extract().expect("Cannot extract list to plot the pointcloud");
         let n_points = pointcloud.raw_dim()[0];
         if self.debug {
@@ -90,7 +90,7 @@ impl PointcloudViewer {
     /// Args: centroids: numpy.ndarray [NX3] in float32 each row represent a centroid.
     ///       color: List[int, int, int] List storing the RGB representation of the color.
     pub fn add_centroid(&mut self, centroids: PyReadonlyArray2<f32>, color: &PyList) {
-        let centroids: ArrayView2<f32> = centroids.as_array();
+        let centroids = centroids.as_array();
         let color: Vec<f32> = color.extract().expect("Cannot extract color list");
         let n_points = centroids.raw_dim()[0];
         if self.debug {
