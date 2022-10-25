@@ -3,7 +3,7 @@ mod renderer;
 mod viewer;
 
 use anyhow::Result;
-use clap::{crate_authors, crate_version, Clap};
+use clap::Parser;
 use kiss3d::resource::{AllocationType, BufferType, GPUVec};
 use kiss3d::window::Window;
 
@@ -12,8 +12,8 @@ use renderer::PointCloudRenderer;
 use viewer::AppState;
 use viewercloud::{PointCloud, PointCloudGPU};
 /// Display KITTI 3D Pointcloud with annotations and your model inferences
-#[derive(Clap)]
-#[clap(version = crate_version!(), author = crate_authors!())]
+#[derive(Parser, Debug)]
+#[command(author, version)]
 struct Opts {
     ///Path to the kitti Pointcloud .bin or .txt file
     pointcloud_file: String,

@@ -14,9 +14,9 @@ exclude = [".gitignore", "tests/**", "target/**"]
 
 [dependencies]
 anyhow = { version = "1.0.31" }
-kiss3d = { version = "0.27.0" }
-nalgebra = { version = "0.23" }
-clap = { features = ["suggestions", "color"], version = "3.0.0-beta.1" }
+kiss3d = { version = "0.35" }
+nalgebra = { version = "0.30" }
+clap = { features = ["suggestions", "color", "derive"], version = "4.0.18" }
 
 
 [lib]
