@@ -12,12 +12,12 @@ use nalgebra as na;
 /// A 2D BoundingBox
 #[derive(Debug)]
 pub struct BBox2D {
-    xmin: Point3<f32>,
+    _xmin: Point3<f32>,
 }
 /// A 3D BoundingBox
 #[derive(Debug)]
 pub struct BBox3D {
-    xmin: Point3<f32>,
+    _xmin: Point3<f32>,
 }
 /// A PointCloud
 //pub type PointCloud = Vec<Point3<f32>>;
